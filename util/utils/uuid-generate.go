@@ -27,16 +27,12 @@ func UuidGenerate(ids []string) string {
 	fmt.Println("==========ids==========", ids)
 	if len(ids) > 0 {
 		//判断是否存在ids里面
-		isExist := false
 		for _, val := range ids {
-			fmt.Println("==========val==========", val)
+			fmt.Println("==========val==========", val, "========", val == hostNo)
 			if val == hostNo {
 				fmt.Println("====================", true)
-				isExist = true
+				hostNo = uuid.New()
 			}
-		}
-		if isExist {
-			hostNo = uuid.New()
 		}
 	}
 	//写入文件
