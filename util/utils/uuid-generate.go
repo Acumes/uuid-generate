@@ -39,7 +39,10 @@ func UuidGenerate(ids []string) string {
 		}
 	}
 	//写入文件
-	WriteFile(FILE_PATH, []byte(hostNo), 0666)
+	err = WriteFile(FILE_PATH, []byte(hostNo), 0666)
+	if err != nil {
+		fmt.Println("errrr==============", err)
+	}
 	return hostNo
 
 }
