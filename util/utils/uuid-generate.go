@@ -24,10 +24,12 @@ func UuidGenerate(ids []string) string {
 	if err != nil {
 		hostNo = uuid.New()
 	}
+	fmt.Println("==========ids==========", ids)
 	if len(ids) > 0 {
 		//判断是否存在ids里面
 		isExist := false
 		for _, val := range ids {
+			fmt.Println("==========val==========", val)
 			if val == hostNo {
 				fmt.Println("====================", true)
 				isExist = true
