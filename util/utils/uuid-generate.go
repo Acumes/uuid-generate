@@ -1,6 +1,7 @@
 package utils
 
 import (
+	"fmt"
 	"github.com/go-basic/uuid"
 	"github.com/shirou/gopsutil/host"
 	"os"
@@ -28,6 +29,7 @@ func UuidGenerate(ids []string) string {
 		isExist := false
 		for _, val := range ids {
 			if val == hostNo {
+				fmt.Println("====================", true)
 				isExist = true
 			}
 		}
