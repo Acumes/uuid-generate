@@ -8,16 +8,14 @@ import (
 	"strings"
 )
 
-var FILE_PATH = "/uuid.txt"
-
 func UuidGenerate(ids []string) string {
 	path, _ := os.Getwd()
-	FILE_PATH = path + FILE_PATH
+	var file_path = path + "/uuid.txt"
 	//判断文件是否存在，如果存在，读取文件id
-	fileExist, _ := PathExists(FILE_PATH)
+	fileExist, _ := PathExists(file_path)
 	fmt.Println("fileExist==============", fileExist)
 	if fileExist {
-		id, err := ReadFile(FILE_PATH)
+		id, err := ReadFile(file_path)
 		fmt.Println("id========================", id, "======err==============", err)
 		if err == nil {
 			return id
@@ -41,7 +39,7 @@ func UuidGenerate(ids []string) string {
 		}
 	}
 	//写入文件
-	err = WriteFile(FILE_PATH, []byte(hostNo), 0666)
+	err = WriteFile(file_path, []byte(hostNo), 0666)
 	if err != nil {
 		fmt.Println("errrr==============", err)
 	}
