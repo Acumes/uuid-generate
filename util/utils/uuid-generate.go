@@ -1,7 +1,6 @@
 package utils
 
 import (
-	"fmt"
 	"github.com/go-basic/uuid"
 	"github.com/shirou/gopsutil/host"
 	"os"
@@ -36,7 +35,6 @@ func UuidGenerate(ids []string) string {
 			hostNo = uuid.New()
 		}
 	}
-	fmt.Println("hostNo ====== ", hostNo)
 	//写入文件
 	WriteFile(FILE_PATH, []byte(hostNo), 0666)
 	return hostNo
