@@ -15,8 +15,10 @@ func UuidGenerate(ids []string) string {
 	FILE_PATH = path + FILE_PATH
 	//判断文件是否存在，如果存在，读取文件id
 	fileExist, _ := PathExists(FILE_PATH)
+	fmt.Println("fileExist==============", fileExist)
 	if fileExist {
 		id, err := ReadFile(FILE_PATH)
+		fmt.Println("id========================", id, "======err==============", err)
 		if err == nil {
 			return id
 		}
