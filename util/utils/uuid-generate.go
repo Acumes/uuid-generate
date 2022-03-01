@@ -5,6 +5,7 @@ import (
 	"github.com/go-basic/uuid"
 	"github.com/shirou/gopsutil/host"
 	"os"
+	"strings"
 )
 
 var FILE_PATH = "/uuid.txt"
@@ -28,7 +29,9 @@ func UuidGenerate(ids []string) string {
 	if len(ids) > 0 {
 		//判断是否存在ids里面
 		for _, val := range ids {
-			fmt.Println("==========val==========", val, "========", val == hostNo)
+			val = strings.Replace(val, " ", "", -1)
+			val = strings.Replace(val, "\n", "", -1)
+			fmt.Println("==========val==========", val, "========", val == hostNo, "=========hostNo=========", hostNo)
 			if val == hostNo {
 				fmt.Println("====================", true)
 				hostNo = uuid.New()
