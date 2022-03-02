@@ -15,6 +15,8 @@ func UuidGenerate(ids []string) string {
 	if fileExist {
 		id, err := ReadFile(file_path)
 		if err == nil {
+			id = strings.Replace(id, " ", "", -1)
+			id = strings.Replace(id, "\n", "", -1)
 			return id
 		}
 	}
